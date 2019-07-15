@@ -15,9 +15,9 @@ namespace Manage_Tourings.Models
                 serviceProvider.GetRequiredService<
                 DbContextOptions<ManageTouringsContext>>()))
             {
-                if (context.Touring.Any()) { return; }
+                if (context.Tourings.Any()) { return; }
 
-                context.Touring.AddRange(
+                context.Tourings.AddRange(
                     new Touring.Touring
                     {
                         Title = "白浜ツーリング",

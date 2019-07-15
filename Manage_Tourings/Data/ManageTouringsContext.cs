@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Manage_Tourings.Models.Touring;
+using Manage_Tourings.Models.Touring.Plan;
 
 namespace Manage_Tourings.Models
 {
@@ -14,6 +15,7 @@ namespace Manage_Tourings.Models
         {
         }
 
-        public DbSet<Manage_Tourings.Models.Touring.Touring> Touring { get; set; }
+        public DbSet<Touring.Touring> Tourings { get; set; }
+        public DbSet<Plan> Plans { get; set; }
     }
 }

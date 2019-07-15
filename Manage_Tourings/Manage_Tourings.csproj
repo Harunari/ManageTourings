@@ -7,18 +7,33 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20190715143347_FixTouringAndPlanModel.cs" />
+    <Compile Remove="Migrations\20190715143347_FixTouringAndPlanModel.Designer.cs" />
+    <Compile Remove="Migrations\20190715143542_FixTouringAndPlanModel2.cs" />
+    <Compile Remove="Migrations\20190715143542_FixTouringAndPlanModel2.Designer.cs" />
+    <Compile Remove="Migrations\20190715144609_FixTouringAndPlanModel2_3.cs" />
+    <Compile Remove="Migrations\20190715144609_FixTouringAndPlanModel2_3.Designer.cs" />
+    <Compile Remove="Migrations\20190715144633_FixTouringAndPlanModel2_4.cs" />
+    <Compile Remove="Migrations\20190715144633_FixTouringAndPlanModel2_4.Designer.cs" />
+    <Compile Remove="Migrations\20190715144847_FixTouringAndPlanModel2_5.cs" />
+    <Compile Remove="Migrations\20190715144847_FixTouringAndPlanModel2_5.Designer.cs" />
+    <Compile Remove="Migrations\20190715145257_FixTouringAndPlanModel2_6.cs" />
+    <Compile Remove="Migrations\20190715145257_FixTouringAndPlanModel2_6.Designer.cs" />
+    <Compile Remove="Migrations\20190715145519_FixTouringAndPlanModel2_7.cs" />
+    <Compile Remove="Migrations\20190715145519_FixTouringAndPlanModel2_7.Designer.cs" />
+    <Compile Remove="Migrations\20190715145658_FixTouringAndPlanModel.cs" />
+    <Compile Remove="Migrations\20190715145658_FixTouringAndPlanModel.Designer.cs" />
+    <Compile Remove="Migrations\20190715145916_FixTouringAndPlanModel.cs" />
+    <Compile Remove="Migrations\20190715145916_FixTouringAndPlanModel.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Models\Touring\Plan\CheckPoint\" />
-    <Folder Include="Models\Touring\Plan\" />
   </ItemGroup>
 
 </Project>

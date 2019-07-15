@@ -22,7 +22,7 @@ namespace Manage_Tourings.Controllers
         // GET: Tourings
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Touring.ToListAsync());
+            return View(await _context.Tourings.ToListAsync());
         }
 
         // GET: Tourings/Details/5
@@ -33,8 +33,8 @@ namespace Manage_Tourings.Controllers
                 return NotFound();
             }
 
-            var touring = await _context.Touring
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var touring = await _context.Tourings
+                .FirstOrDefaultAsync(m => m.TouringId == id);
             if (touring == null)
             {
                 return NotFound();
@@ -73,7 +73,7 @@ namespace Manage_Tourings.Controllers
                 return NotFound();
             }
 
-            var touring = await _context.Touring.FindAsync(id);
+            var touring = await _context.Tourings.FindAsync(id);
             if (touring == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace Manage_Tourings.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Note")] Touring touring)
         {
-            if (id != touring.Id)
+            if (id != touring.TouringId)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace Manage_Tourings.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TouringExists(touring.Id))
+                    if (!TouringExists(touring.TouringId))
                     {
                         return NotFound();
                     }
@@ -124,8 +124,8 @@ namespace Manage_Tourings.Controllers
                 return NotFound();
             }
 
-            var touring = await _context.Touring
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var touring = await _context.Tourings
+                .FirstOrDefaultAsync(m => m.TouringId == id);
             if (touring == null)
             {
                 return NotFound();
@@ -139,15 +139,15 @@ namespace Manage_Tourings.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var touring = await _context.Touring.FindAsync(id);
-            _context.Touring.Remove(touring);
+            var touring = await _context.Tourings.FindAsync(id);
+            _context.Tourings.Remove(touring);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TouringExists(int id)
         {
-            return _context.Touring.Any(e => e.Id == id);
+            return _context.Tourings.Any(e => e.TouringId == id);
         }
     }
 }

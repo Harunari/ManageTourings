@@ -4,14 +4,16 @@ using Manage_Tourings.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Manage_Tourings.Migrations
 {
     [DbContext(typeof(ManageTouringsContext))]
-    partial class ManageTouringsContextModelSnapshot : ModelSnapshot
+    [Migration("20190715145934_FixTouringAndPlanModel")]
+    partial class FixTouringAndPlanModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace Manage_Tourings.Migrations
 
                     b.HasKey("PlanId");
 
-                    b.ToTable("Plans");
+                    b.ToTable("Plan");
                 });
 
             modelBuilder.Entity("Manage_Tourings.Models.Touring.Touring", b =>
@@ -42,14 +44,13 @@ namespace Manage_Tourings.Migrations
 
                     b.Property<int?>("PlanId");
 
-                    b.Property<string>("Title")
-                        .IsRequired();
+                    b.Property<string>("Title");
 
                     b.HasKey("TouringId");
 
                     b.HasIndex("PlanId");
 
-                    b.ToTable("Tourings");
+                    b.ToTable("Touring");
                 });
 
             modelBuilder.Entity("Manage_Tourings.Models.Touring.Touring", b =>
