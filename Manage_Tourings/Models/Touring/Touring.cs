@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Manage_Tourings.Models.Touring.Plan.CheckPoint;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Manage_Tourings.Models.Touring
 {
@@ -10,6 +11,8 @@ namespace Manage_Tourings.Models.Touring
         [Required]
         public string Title { get; set; }
         public string Note { get; set; }
-        public Plan.Plan Plan { get; set; }
+        [Required]
+        public List<Plan.Plan> Plans { get; set; }
+        public List<CheckPoint> CheckPoints { get; set; }
     }
 }

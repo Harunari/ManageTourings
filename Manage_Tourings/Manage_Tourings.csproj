@@ -26,6 +26,14 @@
     <Compile Remove="Migrations\20190715145658_FixTouringAndPlanModel.Designer.cs" />
     <Compile Remove="Migrations\20190715145916_FixTouringAndPlanModel.cs" />
     <Compile Remove="Migrations\20190715145916_FixTouringAndPlanModel.Designer.cs" />
+    <Compile Remove="Migrations\20190716133347_FixPlan.cs" />
+    <Compile Remove="Migrations\20190716133347_FixPlan.Designer.cs" />
+    <Compile Remove="Migrations\20190716134201_FixPlan.cs" />
+    <Compile Remove="Migrations\20190716134201_FixPlan.Designer.cs" />
+    <Compile Remove="Migrations\20190716134747_FixPlans.cs" />
+    <Compile Remove="Migrations\20190716134747_FixPlans.Designer.cs" />
+    <Compile Remove="Migrations\20190716141630_FixCheckPointModel.cs" />
+    <Compile Remove="Migrations\20190716141630_FixCheckPointModel.Designer.cs" />
   </ItemGroup>
 
 

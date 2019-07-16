@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Manage_Tourings.Models.Touring;
 using Manage_Tourings.Models.Touring.Plan;
+using Manage_Tourings.Models.Touring.Plan.CheckPoint;
 
 namespace Manage_Tourings.Models
 {
@@ -17,5 +18,6 @@ namespace Manage_Tourings.Models
 
         public DbSet<Touring.Touring> Tourings { get; set; }
         public DbSet<Plan> Plans { get; set; }
+        public DbSet<CheckPoint> CheckPoints { get; set; }
     }
 }

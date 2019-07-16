@@ -4,45 +4,22 @@ using Manage_Tourings.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Manage_Tourings.Migrations
 {
     [DbContext(typeof(ManageTouringsContext))]
-    partial class ManageTouringsContextModelSnapshot : ModelSnapshot
+    [Migration("20190716134832_FixPlans")]
+    partial class FixPlans
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Manage_Tourings.Models.Touring.Plan.CheckPoint.CheckPoint", b =>
-                {
-                    b.Property<int>("CheckPointId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("AverageSpeedToThisPoint");
-
-                    b.Property<int?>("CheckPointId1");
-
-                    b.Property<int?>("PlanId");
-
-                    b.Property<int>("TouringId");
-
-                    b.HasKey("CheckPointId");
-
-                    b.HasIndex("CheckPointId1");
-
-                    b.HasIndex("PlanId");
-
-                    b.HasIndex("TouringId");
-
-                    b.ToTable("CheckPoints");
-                });
 
             modelBuilder.Entity("Manage_Tourings.Models.Touring.Plan.Plan", b =>
                 {
@@ -52,7 +29,7 @@ namespace Manage_Tourings.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<int>("TouringId");
+                    b.Property<int?>("TouringId");
 
                     b.HasKey("PlanId");
 
@@ -67,6 +44,8 @@ namespace Manage_Tourings.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("DefaultPlanId");
+
                     b.Property<string>("Note");
 
                     b.Property<string>("Title")
@@ -77,28 +56,11 @@ namespace Manage_Tourings.Migrations
                     b.ToTable("Tourings");
                 });
 
-            modelBuilder.Entity("Manage_Tourings.Models.Touring.Plan.CheckPoint.CheckPoint", b =>
-                {
-                    b.HasOne("Manage_Tourings.Models.Touring.Plan.CheckPoint.CheckPoint")
-                        .WithMany("NextCheckPoints")
-                        .HasForeignKey("CheckPointId1");
-
-                    b.HasOne("Manage_Tourings.Models.Touring.Plan.Plan", "Plan")
-                        .WithMany("CheckPoints")
-                        .HasForeignKey("PlanId");
-
-                    b.HasOne("Manage_Tourings.Models.Touring.Touring", "Touring")
-                        .WithMany("CheckPoints")
-                        .HasForeignKey("TouringId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("Manage_Tourings.Models.Touring.Plan.Plan", b =>
                 {
                     b.HasOne("Manage_Tourings.Models.Touring.Touring", "Touring")
                         .WithMany("Plans")
-                        .HasForeignKey("TouringId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("TouringId");
                 });
 #pragma warning restore 612, 618
         }
